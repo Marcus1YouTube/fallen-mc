@@ -28,7 +28,7 @@ export default function Announcements() {
             <Link to='/'><Button variant='outline'><MdArrowBack className="btt-icon"/>Vissza a főoldalra</Button></Link>
             <h1>Bejelentések</h1>
             {announcements.map((announcement) => (
-                <Card key={announcement.id} shadow="lg" p="lg" className='cardOuter'>
+                <Card key={announcement.id} shadow="lg" p="lg" className='card-outer'>
                     <Card.Section className='card'>
                         <h2>{announcement.title}</h2>
                         <hr />

@@ -18,9 +18,10 @@ export default function Announcements() {
     const getAnnouncements = async () => {
         const data = await getDocs(announcementsRefer)
         setAnnouncements(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        announcements.reverse()
+        
     }
     getAnnouncements()
+    announcements.reverse()
 
     return (
         <div className='Announcements'>

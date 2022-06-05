@@ -10,17 +10,17 @@ import parse from "html-react-parser";
 
 export default function Announcements() {
     const [announcements, setAnnouncements] = useState([])
-
+    const announcementsRefer = collection(db, 'bejelentesek')
     useEffect(() => {
-        const announcementsRefer = collection(db, 'bejelentesek')
         document.title = 'Fallen MC - Bejelentések'
-        const getAnnouncements = async () => {
-            const data = await getDocs(announcementsRefer)
-            setAnnouncements(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-            announcements.reverse()
-        }
-        getAnnouncements()
     }, [])
+
+    const getAnnouncements = async () => {
+        const data = await getDocs(announcementsRefer)
+        setAnnouncements(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        announcements.reverse()
+    }
+    getAnnouncements()
 
     return (
         <div className='Announcements'>
